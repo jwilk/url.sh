@@ -1,0 +1,43 @@
+http://www.example.com/;'$(gt=$(perl$IFS-E$IFS's//62/;s/62/chr/e;say');eval$IFS''cowsay$IFS''pwned$IFS$gt/dev/tty)';cowsay$IFS''pwned
+
+The above (completely valid) URL is also a shell script
+that executes some malicious(?!) code::
+
+   $ wget -q http://www.example.com/;'$(gt=$(perl$IFS-E$IFS's//62/;s/62/chr/e;say');eval$IFS''cowsay$IFS''pwned$IFS$gt/dev/tty)';cowsay$IFS''pwned
+   bash: $(gt=$(perl$IFS-E$IFSs//62/: No such file or directory
+   bash: s/62/chr/e: No such file or directory
+   bash: say);eval$IFScowsay$IFSpwned$IFS$gt/dev/tty): No such file or directory
+    _______
+   < pwned >
+    -------
+           \   ^__^
+            \  (oo)\_______
+               (__)\       )\/\
+                   ||----w |
+                   ||     ||
+
+It does so even when you add double quotes around it::
+
+   $ wget -q "http://www.example.com/;'$(gt=$(perl$IFS-E$IFS's//62/;s/62/chr/e;say');eval$IFS''cowsay$IFS''pwned$IFS$gt/dev/tty)';cowsay$IFS''pwned"
+    _______
+   < pwned >
+    -------
+           \   ^__^
+            \  (oo)\_______
+               (__)\       )\/\
+                   ||----w |
+                   ||     ||
+
+Single quotes don't help either::
+
+   $ wget -q 'http://www.example.com/;'$(gt=$(perl$IFS-E$IFS's//62/;s/62/chr/e;say');eval$IFS''cowsay$IFS''pwned$IFS$gt/dev/tty)';cowsay$IFS''pwned'
+    _______
+   < pwned >
+    -------
+           \   ^__^
+            \  (oo)\_______
+               (__)\       )\/\
+                   ||----w |
+                   ||     ||
+
+.. vim:ft=rst ts=3 sts=3 sw=3 et
