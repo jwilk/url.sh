@@ -24,6 +24,7 @@ my ($url) = grep { /^https?:/ } <$fh>;
 close($fh);
 defined($url) or die;
 chomp $url;
+$ENV{PATH} .= ":$FindBin::Bin/ucowsay";
 for my $template (@templates) {
     my $code = sprintf "true $template", $url;
     note("\$ $code");
