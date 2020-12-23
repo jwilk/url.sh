@@ -6,8 +6,8 @@
 set -e -u
 s="$@"
 c=${#s}
-a=$(printf "%0$((c+2))s" '' | tr ' ' '_')
-b=$(printf "%0$((c+2))s" '' | tr ' ' '-')
+a=$(printf "%0$((c+2))d" 0 | tr 0 _)
+b=$(printf "%0$((c+2))d" 0 | tr 0 -)
 w=$(printf "%0$((c+2))s" '')
 cat <<EOF
  $a
