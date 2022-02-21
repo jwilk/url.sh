@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-# Copyright © 2019 Jakub Wilk <jwilk@jwilk.net>
+# Copyright © 2019-2022 Jakub Wilk <jwilk@jwilk.net>
 # SPDX-License-Identifier: MIT
 
 import pathlib
