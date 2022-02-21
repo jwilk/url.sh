@@ -8,6 +8,8 @@ import os
 import httpolice.parse
 import httpolice.syntax.rfc3986
 
+0_0  # Python >= 3.6 is required
+
 print('1..1')
 here = os.path.dirname(__file__)
 basedir = '{here}/..'.format(here=here)
