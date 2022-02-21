@@ -1,7 +1,9 @@
 name: CI
 on:
-- push
-- pull_request
+  push:
+    branches-ignore:
+    - '$**'
+  pull_request:
 jobs:
   main:
     runs-on: ubuntu-latest
