@@ -3,7 +3,7 @@
 # Copyright © 2019 Jakub Wilk <jwilk@jwilk.net>
 # SPDX-License-Identifier: MIT
 
-import os
+import pathlib
 
 import httpolice.parse
 import httpolice.syntax.rfc3986
@@ -11,9 +11,9 @@ import httpolice.syntax.rfc3986
 0_0  # Python >= 3.6 is required
 
 print('1..1')
-here = os.path.dirname(__file__)
-basedir = '{here}/..'.format(here=here)
-path = '{dir}/README'.format(dir=basedir)
+here = pathlib.Path(__file__).parent
+basedir = here.parent
+path = here.parent / 'README'
 url = None
 with open(path, 'rt', encoding='UTF-8') as file:
     for line in file:
