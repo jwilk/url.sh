@@ -6,10 +6,17 @@
 'use strict';
 
 const fs = require('fs');
+const process = require('process')
+
+function print(...args)
+{
+    const s = args.join(' ') + '\n';
+    return process.stdout.write(s);
+}
+
 const basedir = `${__dirname}/..`;
 const path = `${basedir}/README`
 const readme = fs.readFileSync(path, 'UTF-8');
-const print = console.log;
 print('1..1');
 for (const line of readme.split('\n')) {
     if (!line.match('^https?:'))
