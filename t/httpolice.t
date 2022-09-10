@@ -18,6 +18,7 @@ with open(path, 'rt', encoding='UTF-8') as file:
     for line in file:
         if line.startswith(('http:', 'https:')):
             url = line.rstrip('\n')
+            break
 print('#', url)
 httpolice.parse.parse(url, httpolice.syntax.rfc3986.URI)
 print('ok 1 - URL syntax check')
