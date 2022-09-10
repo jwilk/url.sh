@@ -20,7 +20,7 @@ const readme = fs.readFileSync(path, 'UTF-8');
 print('1..1');
 for (const line of readme.split('\n')) {
     if (!line.match('^https?:'))
-        break;
+        continue;
     const orig_url = line;
     print('#', orig_url);
     const url = new URL(orig_url);
@@ -30,6 +30,7 @@ for (const line of readme.split('\n')) {
         print('#', url.href)
         print('not ok 1 - URL syntax check')
     }
+    break;
 };
 
 // vim:ts=4 sts=4 sw=4 et ft=javascript
