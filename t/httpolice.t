@@ -12,7 +12,6 @@ import httpolice.syntax.rfc3986
 
 print('1..1')
 here = pathlib.Path(__file__).parent
-basedir = here.parent
 path = here.parent / 'README'
 url = None
 with open(path, 'rt', encoding='UTF-8') as file:
