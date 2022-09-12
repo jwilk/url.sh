@@ -27,6 +27,13 @@ jobs:
       run: |
         PATH+=:/usr/games
         make test
+    - name: install X test deps
+      run: |
+        sudo apt-get install xvfb xterm tmux xdotool xclip bash mksh zsh
+    - name: run X tests
+      run: |
+        PATH+=:/usr/games
+        make test-xvfb
     - name: check README syntax
       if: matrix.os != 'ubuntu-18.04'
       run: |
