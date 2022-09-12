@@ -62,12 +62,13 @@ do
     code="true $q$url$q"
     xclip -l 1 -i <<< "$code"
     xdotool \
+        sleep 0.2 \
         windowfocus --sync "$wid" \
         mousemove --sync $((RANDOM%16)) $((RANDOM%16)) \
         mousemove --sync --window "$wid" $((WIDTH/2)) $((HEIGHT/2)) \
         click 2 \
         type $'\n'
-    xdotool sleep 0.1
+    xdotool sleep 0.2
     out=$(run_tmux capture-pane -p -E 12)
     # shellcheck disable=SC2001
     sed -e 's/^/# T> /' <<< "$out"
