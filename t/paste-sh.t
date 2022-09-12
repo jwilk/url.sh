@@ -50,7 +50,11 @@ do
     }
     xterm -e tmux -f /dev/null -S "$tmux_socket" new-session "$shell" &
     pid=$!
-    [ -S "$tmux_socket" ] || xdotool sleep 0.5
+    for ((j=0; j<20; j++))
+    do
+        [ -S "$tmux_socket" ] && break
+        xdotool sleep 0.1
+    done
     stat "$tmux_socket" > /dev/null
     wid=$(xdotool search --limit=1 --pid="$pid" --name tmux)
     geom=$(xdotool getwindowgeometry --shell "$wid")
