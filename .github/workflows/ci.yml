@@ -25,7 +25,6 @@ jobs:
         python3 -m pip install httpolice
     - name: run tests
       run: |
-        PATH+=:/usr/games
         make test
       timeout-minutes: 1
     - name: install X test deps
@@ -34,7 +33,6 @@ jobs:
         sudo apt-get install xvfb xterm xfonts-base tmux xdotool xclip bash mksh zsh
     - name: run X tests
       run: |
-        PATH+=:/usr/games
         make test-xvfb
       timeout-minutes: 1
     - name: check README syntax
