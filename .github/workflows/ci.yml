@@ -10,7 +10,6 @@ jobs:
     strategy:
       matrix:
         os:
-        - ubuntu-18.04
         - ubuntu-20.04
         - ubuntu-22.04
     steps:
@@ -36,7 +35,6 @@ jobs:
         make test-xvfb
       timeout-minutes: 1
     - name: check README syntax
-      if: matrix.os != 'ubuntu-18.04'
       run: |
         python3 -m pip install restructuredtext-lint pygments
         rst-lint --level=info --encoding=UTF-8 README
