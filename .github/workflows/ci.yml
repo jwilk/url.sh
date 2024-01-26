@@ -13,7 +13,7 @@ jobs:
         - ubuntu-20.04
         - ubuntu-22.04
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: set up APT
       run: |
         printf 'Apt::Install-Recommends "false";\n' | sudo tee -a /etc/apt/apt.conf
