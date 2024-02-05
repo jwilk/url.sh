@@ -66,6 +66,9 @@ do
         windowfocus --sync "$wid" \
         mousemove --sync $((RANDOM%16)) $((RANDOM%16)) \
         mousemove --sync --window "$wid" $((WIDTH/2)) $((HEIGHT/2)) \
+        type $'HISTFILE=/dev/null\n'
+    xdotool \
+        sleep 0.2 \
         click 2 \
         type $'\n'
     xdotool sleep 0.2
