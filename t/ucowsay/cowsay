@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: MIT
 
 set -e -u
-s="$@"
+s="$*"
 c=${#s}
 a=$(printf "%0$((c+2))d" 0 | tr 0 _)
 b=$(printf "%0$((c+2))d" 0 | tr 0 -)
