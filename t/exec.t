@@ -37,7 +37,7 @@ for my $template (@templates) {
     $pty->close;
     note("$output\n");
     my $short_url = $url;
-    $short_url =~ s{(https?://[^/]+/).*}{$1…};
+    $short_url =~ s{\A(https?://[^/]+/).*}{$1…};
     my $short_code = sprintf "true $template", $short_url;
     like($output, qr/< pwned >/, "«$short_code» code execution");
 }
